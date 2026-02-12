@@ -13,8 +13,8 @@ public class InMemoryOrderRepository : IOrderRepository
     static InMemoryOrderRepository()
     {
         Orders = new ConcurrentDictionary<int, Order>();
-        Orders.TryAdd(1, new Order { Id = 1, Name = "Laptop" });
-        Orders.TryAdd(2, new Order { Id = 2, Name = "Phone" });
+        Orders.TryAdd(1, new Order { Id = 1, Name = "Laptop", IsValid = true});
+        Orders.TryAdd(2, new Order { Id = 2, Name = "Phone", IsValid = true });
     }
 
     public InMemoryOrderRepository(ILogger logger)

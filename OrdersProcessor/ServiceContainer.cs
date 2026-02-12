@@ -14,7 +14,8 @@ public static class ServiceContainer
     {
         var logger = new ConsoleLogger();
         var repository = new InMemoryOrderRepository(logger);
-        var orderService = new OrderService(repository, logger);
+        var orderValidator = new OrderValidator(repository);
+        var orderService = new OrderService(repository, orderValidator, logger);
 
         return (orderService, logger);
     }
